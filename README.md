@@ -1,2 +1,2 @@
-# link_provider
-Provides download link of the latest release of the anime
+# Page object model with full page screenshot in chrome 
+working fine on chrome 106.0.5249.61
