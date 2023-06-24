@@ -24,7 +24,7 @@ import java.time.Duration;
 
 
 public class test{
-	static WebDriver driver;
+	public static WebDriver driver;
 	static ExtentReports reports;
 	static ExtentTest test;
 	@BeforeTest
@@ -49,7 +49,7 @@ public class test{
 
        // WebDriverManager.firefoxdriver().setup();
     	//setting firefox driver
-        System.setProperty("webdriver.chrome.driver","Drivers/chromedriver.exe");
+        
         driver = new ChromeDriver();
         
         //navigate to web page
