@@ -1,6 +1,6 @@
-package utils.listeners;
+package configurations.listeners;
 
-import static utils.extentreports.ExtentTestManager.getTest;
+import static configurations.extentreports.ExtentTestManager.getTest;
 
 import com.aventstack.extentreports.Status;
 import java.util.Objects;
@@ -11,8 +11,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import tests.BaseTest;
-import utils.extentreports.ExtentManager;
-import utils.logs.Log;
+import configurations.extentreports.ExtentManager;
+import configurations.logs.Log;
 
 public class TestListener extends BaseTest implements ITestListener {
     private static String getTestMethodName(ITestResult iTestResult) {

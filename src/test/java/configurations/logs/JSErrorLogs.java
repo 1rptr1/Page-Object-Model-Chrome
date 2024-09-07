@@ -1,4 +1,4 @@
-package utils.logs;
+package configurations.logs;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.LogEntries;

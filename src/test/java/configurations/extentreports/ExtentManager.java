@@ -1,4 +1,4 @@
-package utils.extentreports;
+package configurations.extentreports;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -6,7 +6,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 public class ExtentManager {
     public static final ExtentReports extentReports = new ExtentReports();
 
-    public synchronized static ExtentReports createExtentReports() {
+    public static synchronized ExtentReports createExtentReports() {
         ExtentSparkReporter reporter = new ExtentSparkReporter("./target/Reports/extent-report.html");
         reporter.config().setReportName("Extent Report");
         extentReports.attachReporter(reporter);

@@ -1,4 +1,4 @@
-package utils.extentreports;
+package configurations.extentreports;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -16,12 +16,12 @@ public class ExtentTestManager {
     static ExtentReports extent = ExtentManager.createExtentReports();
 
     public static synchronized ExtentTest getTest() {
-        return extentTestMap.get((int) Thread.currentThread().getId());
+        return extentTestMap.get((int) Thread.currentThread().threadId());
     }
 
     public static synchronized ExtentTest startTest(String testName, String desc) {
         ExtentTest test = extent.createTest(testName, desc);
-        extentTestMap.put((int) Thread.currentThread().getId(), test);
+        extentTestMap.put((int) Thread.currentThread().threadId(), test);
         return test;
     }
 }
