@@ -11,106 +11,82 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 
+import static utility.utils.fullPageScreenshot;
 
 
-public class test{
-	public static WebDriver driver;
-	static ExtentReports reports;
-	static ExtentTest test;
-	@BeforeTest
-	public void startup()
-	{
+public class TestInitiator {
+    public static WebDriver driver;
+    static ExtentReports reports;
+    static ExtentTest test;
 
-		 reports = new ExtentReports();
-		 
-		 test = reports.createTest("csvds");
-	}
-	
-	@AfterTest
-	public static void endTest()
-	{
-		
-	reports.flush();
-	test.log(Status.PASS, "cds");
-	}
-	
-    @Test
-    public static void switchtab() throws InterruptedException, IOException{
+    @BeforeTest
+    public void startup() {
 
-       // WebDriverManager.firefoxdriver().setup();
-    	//setting firefox driver
-        
+        reports = new ExtentReports();
+        test = reports.createTest("Test Start");
+    }
+
+    @AfterTest
+    public static void endTest() {
+
+        reports.flush();
+        test.log(Status.PASS, "cds");
+    }
+
+    @org.testng.annotations.Test
+    public static void switchTab() throws IOException {
         driver = new ChromeDriver();
-        
+
         //navigate to web page
-        driver.get("https://selectorshub.com");
+         driver.get("https://selectorshub.com");
         driver.manage().window().maximize();
-        
+
         driver.findElement(By.xpath("//li[@id='menu-item-4098']")).click();
-      //  By youtubedata = By.xpath("//a[contains(text(),'Click to learn \"How does XPath works internally?\"')]");
-        By youtubedata = By.xpath("//input[@id='userId']");
-       eplicitlyWait(youtubedata);
-    //    System.out.println(driver.findElement(youtubedata).getAttribute("href"));
-        
+
+        By youtubeData = By.xpath("//input[@id='userId']");
+        eplicitlyWait(youtubeData);
+
         WebElement username = driver.findElement(By.xpath("//input[@id='userId']"));
         username.click();
         username.sendKeys("dsadsa");
-        
+
         WebElement password = driver.findElement(By.xpath("//input[@id='pass']"));
         password.click();
         password.clear();
         password.sendKeys("botbot@123");
-        
+
         WebElement company = driver.findElement(By.xpath("//input[@name='company']"));
         company.click();
         company.sendKeys("JBL");
-        
+
         //SVG element 
         By editIcon = (By.xpath("//*[local-name()='svg' and @iconid='editon']/*[local-name()='path']"));
         Actions a = new Actions(driver);
         a.moveToElement(driver.findElement(editIcon)).
-        click().build().perform();
-        
+                click().build().perform();
+
         WebElement nameThroughAutomation = driver.findElement(By.xpath("//input[@class='nameFld']"));
         nameThroughAutomation.click();
         nameThroughAutomation.sendKeys("Dell acd");
-        
+
         fullPageScreenshot();
-        
-       driver.quit();
-    }
-    
-    public static void eplicitlyWait(By webelement)
-    {
-    	new WebDriverWait(driver, Duration.ofSeconds(20)).until(
-    			ExpectedConditions.elementToBeClickable(webelement));   	  
-    }
-    
-    public static void fullPageScreenshot() throws IOException {
-        Screenshot s=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
-        ImageIO.write(s.getImage(),"PNG",new File("target/fullpagescreenshot-"+timeStamp()+".png"));
 
-	}
+        driver.quit();
+    }
 
-	public static void pageScreenshot() throws IOException {
-	     File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-	     FileHandler.copy(source, new File("pagescreenshot-"+timeStamp()+".png"));
-	}
-	
-	public static String timeStamp()
-	{
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		return timeStamp;
-	}
-        
+    public static void eplicitlyWait(By webelement) {
+        new WebDriverWait(driver, Duration.ofSeconds(50)).until(
+                ExpectedConditions.elementToBeClickable(webelement));
+    }
+
 }

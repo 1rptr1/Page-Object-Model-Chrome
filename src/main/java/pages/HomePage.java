@@ -1,15 +1,17 @@
 package pages;
 
+import configurations.logs.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import configurations.logs.Log;
+import utility.DriverFactory;
 
 public class HomePage extends BasePage {
     /**
      * Constructor
+     *
      */
-    public HomePage(WebDriver driver) {
-        super(driver);
+    public HomePage() {
+       super();
     }
 
     /**
@@ -20,7 +22,6 @@ public class HomePage extends BasePage {
     /**
      * Web Elements
      */
-    //By signInButtonClass = By.className("btnSignIn");
     By products      =   By.xpath("//li[@id='menu-item-27']");
     By pro_plans     =   By.xpath("//li[@id='menu-item-33']");
     By courses       =   By.xpath("//li[@id='menu-item-1075']");
@@ -40,9 +41,9 @@ public class HomePage extends BasePage {
     }
 
     //Go to LoginPage
-    public practicePage goToPracticePage() {
+    public PracticePage goToPracticePage() {
         Log.info("Going to practice page");
         click(practice_page);
-        return new practicePage(driver);
+        return new PracticePage();
     }
 }

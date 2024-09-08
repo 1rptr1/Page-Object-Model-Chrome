@@ -4,28 +4,28 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import configurations.logs.Log;
 
-public class practicePage extends BasePage {
+public class PracticePage extends BasePage {
     /**
      * Constructor
      */
-    public practicePage(WebDriver driver) {
-        super(driver);
+    public PracticePage() {
+        super();
     }
 
     /**
      * Web Elements
      */
-    By userEmailId                = By.xpath("//input[@id='userId']");
-    By passwordId                   = By.xpath("//input[@id='pass']");
-    By companyId                   = By.xpath("//input[@name='company']");
-    By submit                     = By.xpath("//input[@type='submit']");
+    By userEmailId               = By.xpath("//input[@id='userId']");
+    By passwordId                = By.xpath("//input[@id='pass']");
+    By companyId                 = By.xpath("//input[@name='company']");
+    By submit                    = By.xpath("//input[@type='submit']");
     By errorMessageUsernameXpath = By.xpath("//*[@id=loginForm]/div[1]/div/div");
     By errorMessagePasswordXpath = By.xpath("//*[@id=loginForm]/div[2]/div/div ");
 
     /**
      * Page Methods
      */
-    public practicePage loginToSH(String username, String password,String company) {
+    public PracticePage loginToSH(String username, String password, String company) {
         Log.info("Trying to login the Practice page");
         implicitWait(10);
         click(userEmailId);
@@ -52,4 +52,5 @@ public class practicePage extends BasePage {
         assertTrue(JSErrorLogs.isLoginErrorLog(driver));
         return this;
     }*/
+
 }

@@ -1,4 +1,4 @@
-package utils;
+package utility;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -16,16 +16,17 @@ public class Waits {
     public static void implicitlyWait(WebDriver driver, int timeUnits){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeUnits));
     }
-    public static void explicitlyWait(WebDriver driver, By element, int timeUnits)
+    public static WebElement explicitlyWait(WebDriver driver, By element, int timeUnits)
     {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(timeUnits));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
-    public static void explicitlyWait(WebDriver driver, WebElement element, int timeUnits)
+    public static WebElement explicitlyWait(WebDriver driver, WebElement element, int timeUnits)
     {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(timeUnits));
         wait.until(ExpectedConditions.visibilityOf(element));
+        return element;
     }
 
     public static void fluentWait(WebDriver driver,By element, int timeUnits, int polling)
