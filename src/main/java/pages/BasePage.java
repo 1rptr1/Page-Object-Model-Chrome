@@ -1,5 +1,6 @@
 package pages;
 
+import lombok.Getter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,9 +13,11 @@ import utility.DriverFactory;
 
 import java.time.Duration;
 
+import static utility.Waits.explicitlyWait;
+
 public class BasePage {
-    public static WebDriver driver;
-    public WebDriverWait wait;
+    @Getter
+    protected WebDriver driver;
 
     //Constructor
     public BasePage() {
@@ -23,37 +26,36 @@ public class BasePage {
 
     //Click Method
     public void click(By by) {
-        waitVisibility(by).click();
+        explicitlyWait(driver, by, 10);
+        driver.findElement(by).click();
+    }
+
+    public Boolean isClickable(By by) {
+        return driver.findElement(by).isEnabled();
     }
 
     //Write Text
     public void writeText(By by, String text) {
-        waitVisibility(by).sendKeys(text);
+        explicitlyWait(driver, by, 10);
+        driver.findElement(by).sendKeys(text);
     }
 
     //Read Text
     public String readText(By by) {
-        return waitVisibility(by).getText();
+        explicitlyWait(driver, by, 10);
+        return driver.findElement(by).getText();
     }
 
     //Clear Text
     public String clearText(By by) {
-        return waitVisibility(by).getText();
+        explicitlyWait(driver, by, 10);
+        return driver.findElement(by).getText();
     }
 
     //Get Attribute
-    public String getAttribute(By by,String attribute) {
-        return waitVisibility(by).getAttribute(attribute);
-    }
-
-    //Explicit Wait
-    public WebElement waitVisibility(By by) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
-
-    //Implicit Wait
-    public void implicitWait(int duration){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(duration));
+    public String getAttribute(By by, String attribute) {
+        explicitlyWait(driver, by, 10);
+        return driver.findElement(by).getAttribute(attribute);
     }
 
 }

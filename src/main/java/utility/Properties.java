@@ -11,7 +11,7 @@ public class Properties {
     // Private constructor to prevent instantiation
     private Properties() {
         properties = new java.util.Properties();
-        try (FileInputStream fis = new FileInputStream("config.properties")) {
+        try (FileInputStream fis = new FileInputStream("src/test/resources/config.properties")) {
             properties.load(fis);
         } catch (IOException e) {
             e.printStackTrace();

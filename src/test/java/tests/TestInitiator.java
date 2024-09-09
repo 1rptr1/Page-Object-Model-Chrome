@@ -79,7 +79,7 @@ public class TestInitiator {
         nameThroughAutomation.click();
         nameThroughAutomation.sendKeys("Dell acd");
 
-        fullPageScreenshot();
+        fullPageScreenshot(driver);
 
         driver.quit();
     }

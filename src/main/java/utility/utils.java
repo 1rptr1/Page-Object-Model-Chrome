@@ -1,4 +1,5 @@
 package utility;
+import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
@@ -10,9 +11,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 public class utils extends BasePage {
-    utils(){super();}
-
-    public static void fullPageScreenshot() throws IOException {
+    public static void fullPageScreenshot(WebDriver driver) throws IOException {
         Screenshot s = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
         ImageIO.write(s.getImage(), "PNG", new File("target/fullPageScreenshot-" + timeStamp() + ".png"));
     }
