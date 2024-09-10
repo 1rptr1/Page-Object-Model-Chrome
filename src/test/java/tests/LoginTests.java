@@ -16,7 +16,7 @@ public class LoginTests extends tests.BaseTest {
             .goToSelectorsHub()
             .goToPracticePage()
             .loginToSH("Saurav@gmail.com","tomtom@123","Dell");
-
+        extentTest = extentReports.createTest("User entry field", "This test case has passed, user is able to pass name,email and company");
     }
 
 }

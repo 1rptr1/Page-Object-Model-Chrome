@@ -15,8 +15,8 @@ import java.time.Duration;
 
 import static utility.Waits.explicitlyWait;
 
+@Getter
 public class BasePage {
-    @Getter
     protected WebDriver driver;
 
     //Constructor

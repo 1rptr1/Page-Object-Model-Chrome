@@ -12,7 +12,7 @@
         <maven.compiler.target>18</maven.compiler.target>
         <selenium-version>4.24.0</selenium-version>
         <testng-version>7.10.2</testng-version>
-        <extentreports-version>5.0.8</extentreports-version>
+        <extentreports-version>5.1.1</extentreports-version>
         <maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>
     </properties>
 
