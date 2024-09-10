@@ -22,17 +22,16 @@ public class PracticePage extends BasePage {
     By userEmailId = By.xpath("//input[contains(@id,'shub')]");
     By passwordId = By.xpath("//input[@id='pass']");
     By companyId = By.xpath("//input[@name='company']");
-    By submit = By.xpath("//input[@type='submit']");
+    By submit = By.xpath("//button[@value='Submit']");
     By errorMessageUsernameXpath = By.xpath("//*[@id=loginForm]/div[1]/div/div");
     By errorMessagePasswordXpath = By.xpath("//*[@id=loginForm]/div[2]/div/div ");
 
     /**
      * Page Methods
      */
-    public PracticePage loginToSH(String username, String password, String company) {
+    public void loginToSH(String username, String password, String company) {
         Log.info("Trying to login the Practice page");
-        explicitlyWait(driver, userEmailId, 30);
-        if (!isClickable(userEmailId)) explicitlyWait(driver, userEmailId, 30);
+        fluentWait(driver, userEmailId, 500,20);
         click(userEmailId);
         writeText(userEmailId, username);
         click(passwordId);
@@ -40,6 +39,5 @@ public class PracticePage extends BasePage {
         click(companyId);
         writeText(companyId, company);
         click(submit);
-        return this;
     }
 }

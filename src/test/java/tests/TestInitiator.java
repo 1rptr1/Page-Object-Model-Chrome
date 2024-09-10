@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
@@ -43,7 +44,7 @@ public class TestInitiator {
         test.log(Status.PASS, "cds");
     }
 
-    @org.testng.annotations.Test
+    @Test
     public static void switchTab() throws IOException {
         driver = new ChromeDriver();
 
