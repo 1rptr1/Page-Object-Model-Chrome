@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
-public class utils extends BasePage {
+public class Utils extends BasePage {
     public static void fullPageScreenshot(WebDriver driver) throws IOException {
         Screenshot s = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(driver);
         ImageIO.write(s.getImage(), "PNG", new File("target/fullPageScreenshot-" + timeStamp() + ".png"));

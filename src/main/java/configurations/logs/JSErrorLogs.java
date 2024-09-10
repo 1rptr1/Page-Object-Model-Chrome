@@ -5,6 +5,10 @@ import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogType;
 
 public class JSErrorLogs {
+
+    private JSErrorLogs(){
+        throw new IllegalStateException("JSErrorLogs Class");
+    }
     public static LogEntries getLogs(WebDriver driver) {
         return driver.manage().logs().get(LogType.BROWSER);
     }

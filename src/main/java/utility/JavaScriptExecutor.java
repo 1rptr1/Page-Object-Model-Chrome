@@ -7,6 +7,10 @@ import org.openqa.selenium.WebElement;
 
 public class JavaScriptExecutor {
 
+    private JavaScriptExecutor(){
+        throw new IllegalStateException("JavaScriptExecutor class");
+    }
+
     // Method 1: Clicking an element using JavaScript
     public static WebDriver clickElementByJS(WebDriver driver, String elementId) {
         JavascriptExecutor js = (JavascriptExecutor) driver;

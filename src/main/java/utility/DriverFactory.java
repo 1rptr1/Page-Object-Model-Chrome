@@ -7,7 +7,9 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
 
-    // Enum to specify browser type
+    private DriverFactory(){
+        throw  new IllegalStateException("Driver Factory Class");
+    }
     private static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 
     // Method to create and get the driver instance for the current thread

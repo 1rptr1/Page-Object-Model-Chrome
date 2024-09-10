@@ -2,16 +2,8 @@ package pages;
 
 import lombok.Getter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.DriverFactory;
-
-import java.time.Duration;
 
 import static utility.Waits.explicitlyWait;
 
@@ -47,9 +39,9 @@ public class BasePage {
     }
 
     //Clear Text
-    public String clearText(By by) {
+    public void clearText(By by) {
         explicitlyWait(driver, by, 10);
-        return driver.findElement(by).getText();
+        driver.findElement(by).clear();
     }
 
     //Get Attribute

@@ -21,9 +21,9 @@ public class HomePage extends BasePage {
      * Web Elements
      */
     By products      =   By.xpath("//li[@id='menu-item-27']");
-    By pro_plans     =   By.xpath("//li[@id='menu-item-33']");
+    By proPlans =   By.xpath("//li[@id='menu-item-33']");
     By courses       =   By.xpath("//li[@id='menu-item-1075']");
-    By practice_page =   By.xpath("//li[@id='menu-item-4098']");
+    By practicePage =   By.xpath("//li[@id='menu-item-4098']");
     By resources     =   By.xpath("//li[@id='menu-item-36']");
     By about         =   By.xpath("//li[@id='menu-item-48']");
     By search        =   By.xpath("//input[@type='search']");
@@ -41,7 +41,7 @@ public class HomePage extends BasePage {
     //Go to LoginPage
     public PracticePage goToPracticePage() {
         Log.info("Going to practice page");
-        click(practice_page);
+        click(practicePage);
         return new PracticePage();
     }
 }

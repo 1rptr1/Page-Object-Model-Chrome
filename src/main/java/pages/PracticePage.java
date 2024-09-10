@@ -1,21 +1,11 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import configurations.logs.Log;
+import org.openqa.selenium.By;
 
-import java.util.Set;
-
-import static utility.Waits.*;
+import static utility.Waits.fluentWait;
 
 public class PracticePage extends BasePage {
-    /**
-     * Constructor
-     */
-    public PracticePage() {
-        super();
-    }
-
     /**
      * Web Elements
      */
@@ -25,13 +15,19 @@ public class PracticePage extends BasePage {
     By submit = By.xpath("//button[@value='Submit']");
     By errorMessageUsernameXpath = By.xpath("//*[@id=loginForm]/div[1]/div/div");
     By errorMessagePasswordXpath = By.xpath("//*[@id=loginForm]/div[2]/div/div ");
+    /**
+     * Constructor
+     */
+    public PracticePage() {
+        super();
+    }
 
     /**
      * Page Methods
      */
     public void loginToSH(String username, String password, String company) {
         Log.info("Trying to login the Practice page");
-        fluentWait(driver, userEmailId, 500,20);
+        fluentWait(driver, userEmailId, 500, 20);
         click(userEmailId);
         writeText(userEmailId, username);
         click(passwordId);
