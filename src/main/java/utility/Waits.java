@@ -11,8 +11,6 @@ import java.time.Duration;
 
 public class Waits extends BasePage {
 
-    static int timeUnits = 30;
-
     public static void implicitlyWait(WebDriver driver, int timeUnits) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeUnits));
     }
