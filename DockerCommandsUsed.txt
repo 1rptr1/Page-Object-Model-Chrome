@@ -1,2 +1,5 @@
 docker build -t pomc .
 docker run -d pomc
+docker ps
+docker-compose down
+docker-compose up -d
